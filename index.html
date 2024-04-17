@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dist/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.min.css"
+    />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- alpine js -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"
+    ></script>
+    <style>
+       html {scroll-behavior: smooth;}
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- header -->
+    <nav
+      class="relative px-4 py-4 flex justify-between items-center bg-sky-800"
+    >
+      <a class="text-3xl font-bold leading-none" href="#">
+        <img src="assets/logo_ut2.png" class="h-12 lg:h-14" alt="" />
+      </a>
+      <div class="lg:hidden">
+        <button class="navbar-burger flex items-center text-white p-3">
+          <svg
+            class="block h-4 w-4 fill-current"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+          </svg>
+        </button>
+      </div>
+      <ul
+        class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6"
+      >
+        <li>
+          <a class="text-sm text-white hover:text-gray-500" href="#home">Home</a>
+        </li>
+        <li class="text-gray-300">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            class="w-4 h-4 current-fill"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+            />
+          </svg>
+        </li>
+        <li>
+          <a class="text-sm text-white hover:text-gray-500" href="#stats"
+            >Stats</a
+          >
+        </li>
+        <li class="text-gray-300">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            class="w-4 h-4 current-fill"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+            />
+          </svg>
+        </li>
+        <li>
+          <a class="text-sm text-white hover:text-gray-500" href="#info"
+            >Info</a
+          >
+        </li>
+        <li class="text-gray-300">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            class="w-4 h-4 current-fill"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+            />
+          </svg>
+        </li>
+        <li>
+          <a class="text-sm text-white hover:text-gray-500" href="#register">Registrer</a>
+        </li>
+        <li class="text-gray-300">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            class="w-4 h-4 current-fill"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+            />
+          </svg>
+        </li>
+        <li>
+          <a class="text-sm text-white hover:text-gray-500" href="#contact">Contact</a>
+        </li>
+      </ul>
+      <a
+        class="hidden lg:inline-block py-3 px-6 bg-yellow-400 hover:bg-yellow-600 text-sm text-white font-semibold rounded-xl transition duration-200"
+        href="#"
+        >Sign up</a
+      >
+    </nav>
+    <div class="navbar-menu relative z-50 hidden">
+      <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+      <nav
+        class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto"
+      >
+        <div class="flex items-center mb-8">
+          <a class="mr-auto text-3xl font-bold leading-none" href="#">
+            <img src="assets/logo_ut.png" class="h-16" alt="" />
+          </a>
+          <button class="navbar-close">
+            <svg
+              class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div>
+          <ul>
+            <li class="mb-1">
+              <a
+                class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                href="#home"
+                >Home</a
+              >
+            </li>
+            <li class="mb-1">
+              <a
+                class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                href="#stats"
+                >Stats</a
+              >
+            </li>
+            <li class="mb-1">
+              <a
+                class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                href="#info"
+                >Info</a
+              >
+            </li>
+            <li class="mb-1">
+              <a
+                class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                href="#register"
+                >Registrer</a
+              >
+            </li>
+            <li class="mb-1">
+              <a
+                class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                href="#contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="mt-auto">
+          <div class="pt-6">
+            <a
+              class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded-xl"
+              href="#"
+              >Sign in</a
+            >
+            <a
+              class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-xl"
+              href="#"
+              >Sign Up</a
+            >
+          </div>
+          <p class="my-4 text-xs text-center text-gray-400">
+            <span>Copyright © 2024</span>
+          </p>
+        </div>
+      </nav>
+    </div>
+    <!-- hero section -->
+    <section
+      id="home"
+      class="hero bg-white py-12 xl:pt-12 xl:pb-0 my-28 overflow-hidden"
+    >
+      <div class="container mx-auto h-full my-2">
+        <!-- text and image -->
+        <div
+          class="flex flex-col xl:flex-row items-center justify-between h-full"
+        >
+          <!-- image -->
+          <div
+            class="hero__img xl:flex mx-auto max-w-[814px] self-end order-first mb-8 xl:mb-0"
+          >
+            <img src="assets/hero.png" alt="" class="rotate-animation h-96" />
+          </div>
+          <!-- text -->
+          <div class="hero__text xl:w-[48%] text-center">
+            <!-- title -->
+            <h1 class="text-3xl text-black font-bold font-poppins">
+              Kuliah bisa <span class="text-sky-600"></span>
+            </h1>
+            <h1 class="my-4 text-3xl text-black font-bold font-poppins">
+              Hanya di Universitas Terbuka
+            </h1>
+            <!-- desc -->
+            <p class="mb-[42px] text-base text-black">
+              Mari bergabung dan jadi bagian dari Mahasiswa Universitas Terbuka
+              dengan kampus Terakreditasi dan biaya Terjangkau.
+            </p>
+            <!-- btn -->
+            <div class="flex gap-3 justify-center">
+              <a href="https://wa.me/+6285156710872">
+                <button
+                  class="btn btn-lg bg-white border border-sky-800 hover:bg-sky-800 text-black hover:text-white mx-auto"
+                >
+                  Tanya Kami
+                </button>
+              </a>
+              <a href="https://wa.me/+6285156710872">
+                <button
+                  class="btn btn-lg bg-white border border-sky-800 hover:bg-sky-800 text-black hover:text-white mx-auto"
+                >
+                  FAQ
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end hero section -->
+
+    <!-- stats -->
+    <!-- Container for demo purpose -->
+    <section
+      class="container my-10 mx-auto md:px-6 flex flex-col gap-y-24"
+      id="stats"
+    >
+      <h2 class="mb- text-3xl font-semibold text-center text-yellow-500 stats__item">
+        Fakultas & <span class="text-sky-600">Prodi</span> 
+      </h2>
+      <!-- Section: Design Block -->
+      <div class="mb-32 text-center">
+        <div class="grid lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12">
+          <div class="mb-16 lg:mb-0 stats__item1 hover-1">
+            <div
+              class="block h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+            >
+              <div class="flex justify-center">
+                <div
+                  class="-mt-8 inline-block rounded-full bg-slate-500 p-4 text-primary shadow-md"
+                >
+                  <i class="ri-bank-line text-5xl text-white"></i>
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="mb-4 text-2xl font-bold text-sky-600">FMIPA</h3>
+                <h5 class="mb-4 text-lg font-medium">
+                  Fakultas Matematika dan IPA
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-16 lg:mb-0 stats__item2">
+            <div
+              class="block h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+            >
+              <div class="flex justify-center">
+                <div
+                  class="-mt-8 inline-block rounded-full bg-yellow-300 p-4 text-primary shadow-md"
+                >
+                  <i class="ri-bank-line text-5xl text-white"></i>
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="mb-4 text-2xl font-bold text-sky-600">FEKON</h3>
+                <h5 class="mb-4 text-lg font-medium">Fakultas Ekonomi</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-16 lg:mb-0  stats__item3">
+            <div
+              class="block h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+            >
+              <div class="flex justify-center">
+                <div
+                  class="-mt-8 inline-block rounded-full bg-sky-500 p-4 text-primary shadow-md"
+                >
+                  <i class="ri-bank-line text-5xl text-white"></i>
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="mb-4 text-2xl font-bold text-sky-600">FISIP</h3>
+                <h5 class="mb-4 text-lg font-medium">
+                  Fakultas Ilmu Sosial dan Politik
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="mb-16 lg:mb-0 stats__item4">
+            <div
+              class="block h-full rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+            >
+              <div class="flex justify-center">
+                <div
+                  class="-mt-8 inline-block rounded-full bg-purple-500 p-4 text-primary shadow-md"
+                >
+                  <i class="ri-bank-line text-5xl text-white"></i>
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="mb-4 text-2xl font-bold text-sky-600">FKIP</h3>
+                <h5 class="mb-4 text-lg font-medium">
+                  Fakultas Keguruan dan Ilmu Pendidikan
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Section: Design Block -->
+    </section>
+    <!-- Container for demo purpose -->
+    <!-- end stats -->
+
+    <!--Info Accordions -->
+    <section class="container mx-auto" id="info">
+      <h1 class="text-3xl font-semibold text-center text-sky-600 info__accordions">
+        Kenapa Harus Kuliah di <span class="text-yellow-400">UT</span>
+      </h1>
+      <div class="flex flex-col lg:flex-row">
+        <div class="justify-center my-10">
+          <main class="p-5 bg-light-blue">
+            <div class="flex justify-center items-start my-2">
+              <div class="w-full items__accordions1">
+                <h2
+                  class="text-xl font-bold text-vnet-blue mb-2 text-teal-600 text-center"
+                ></h2>
+                <ul class="flex flex-col">
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(1)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Tanpa Tes Masuk</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                      <h1 class="p-3">
+                        Kuliah di Universitas Terbuka tanoa proses tes masuk
+                        hanyaseleksi berkas administrasi sada
+                      </h1>
+                    </div>
+                  </li>
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(2)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Terakreditasi BAN-PT</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                      <h1 class="p-3">
+                        UT telah memperoleh Akreditasi institusi dan Program Studi
+                        dengan peringkat A & B
+                      </h1>
+                    </div>
+                  </li>
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(3)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Kuliah Sambil Kerja</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                      <h1 class="p-3">
+                        Jam kuliah lebih fleksibel melalui daring sehingga tidak
+                        mengganggu waktu kerja dikantor
+                      </h1>
+                    </div>
+                  </li>
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(4)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Terbuka Semua Usia</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                      <h1 class="p-3">
+                        Kuliah di UT tanpa batasan usia, semua bisa mewujudkan
+                        mimpinya menjadi sarjana
+                      </h1>
+                    </div>
+                  </li>
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(5)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Kuliah Dimana Saja</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                      <h1 class="p-3">
+                        UT hadir diseluruh Indonesia dan dibelahan dunia sehingga
+                        memungkinkan anda kuliah dimana saja
+                      </h1>
+                    </div>
+                  </li>
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(6)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Kuliah Online & Tatap Muka</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                      <h1 class="p-3">
+                        Kuliah bisa simana saja melalui online dan/atau melalui
+                        tatap muka secara langsung bersama tutor
+                      </h1>
+                    </div>
+                  </li>
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(7)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Tersedia Alih Kredit </span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                      <h1 class="p-3">
+                        Pengakuan mata kuliah yang sudah pernah ditempuh pada
+                        perguruan tinggi lain
+                      </h1>
+                    </div>
+                  </li>
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(8)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Biaya Terjangkau</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                      <h1 class="p-3">
+                        Biaya pendidikan relatif murah & terjangkau untuk semua kalangan
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </main>
+        </div>
+        <div class="justify-center my-10">
+          <main class="p-5 bg-light-blue">
+            <div class="flex justify-center items-start my-2">
+              <div class="w-full items__accordions2">
+                <h2
+                  class="text-xl font-bold text-vnet-blue mb-2 text-teal-600 text-center"
+                ></h2>
+                <ul class="flex flex-col">
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(9)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Fakultas Matematika dan IPA</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                      <ul class="p-3">
+                        <li>
+                          <h1 class="font-semibold">I. Jurusan Matematika</h1>
+                          <p class="px-4 text-base text-black">- Prodi S1 Matematika</p>
+                        </li>
+                        <li>
+                          <h1 class="font-semibold">II. Jurusan Statistika</h1>
+                          <p class="px-4 text-base text-black">- Prodi S1 Statistika</p>
+                        </li>
+                        <li>
+                          <h1 class="font-semibold">III. Jurusan Biologi</h1>
+                          <p class="px-4 text-base text-black">- Prodi S1 Biologi</p>
+                          <p class="px-4 text-base text-black">- Prodi S1 Agribisnis Bidang Minat Penyuluhan Dan
+                            Komunikasi: Pertanian/Peternakan/Perikanan</p>
+                          <p class="px-4 text-base text-black">- Prodi S1 lImu Dan Teknologi Pangan - Prodi Perencanaan
+                            Wilayah Dan Kota Bidang Minat Pengelolaan SDA Dan
+                            Lingkungan</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(10)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Fakultas Ekonomi</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                      <ul class="p-3">
+                        <li class="text-black">A. Prodi S1 Ekonomi Pembangunan</li>
+                        <li class="text-black">B. Prodi S1 Ekonomi Bidang Minat Ekonomi Perbankan Syariah</li>
+                        <li class="text-black">C. Prodi S1 Akuntansi</li>
+                        <li class="text-black">E. Prodi S1 Akuntansi Bidang Minat Akuntansi Sektor Publik</li>
+                        <li class="text-black">F. Prodi S1 Manajemen</li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(11)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Fakultas Ilmu Sosial dan Politik</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                    <ul class="p-3">
+                      <li>
+                        <h1 class="font-semibold">I. Jurusan Ilmu Administrasi</h1>
+                        <p class="px-4 text-base text-black">A. Prodi S1 Administrasi Negara</p>
+                        <p class="px-4 text-base text-black">B. Prodi S1 Administrasi Negara Bidang Minat Administrasi Dan Manajemen Kepegawaian</p>
+                        <p class="px-4 text-base text-black">C. Prodi S1 Ilmu Administrasi Bisnis</p>
+                        <p class="px-4 text-base text-black">D. Prodi S1 Ilmu Pemerintahan</p>
+                        <p class="px-4 text-base text-black">E. Prodi S1 ilmu Hukum</p>
+                        <p class="px-4 text-base text-black">F. Prodi D-IV Kearsipan</p>
+                        <p class="px-4 text-base text-black">G. Prodi D-III Perpajakan</p>
+                      </li>
+                      <li>
+                        <h1 class="font-semibold">II. Jurusan Ilmu Komunikasi</h1>
+                        <p class="px-4 text-base text-black">- Prodi S1 ilmu Komunikasi</p>
+                        <p class="px-4 text-base text-black">- Prodi D-II Perpustakaan</p>
+                        <p class="px-4 text-base text-black">- Prodi S1 Ilmu Perpustakaan</p>
+                      </li>
+                      <li>
+                        <h1 class="font-semibold">III. Jurusan Biologi</h1>
+                        <p class="px-4 text-base text-black">- Prodi S1 Biologi</p>
+                        <p class="px-4 text-base text-black">- Prodi S1 Agribisnis Bidang Minat Penyuluhan Dan
+                          Komunikasi: Pertanian/Peternakan/Perikanan</p>
+                        <p class="px-4 text-base text-black">- Prodi S1 lImu Dan Teknologi Pangan - Prodi Perencanaan
+                          Wilayah Dan Kota Bidang Minat Pengelolaan SDA Dan
+                          Lingkungan</p>
+                      </li>
+                      <li>
+                        <h1 class="font-semibold">III. Jurusan Sosiologi</h1>
+                        <p class="px-4 text-base text-black">A. Prodi S1 Sosiologi</p>
+                      </li>
+                      <li>
+                        <h1 class="font-semibold">IV. Jurusan Bahasa Dan Sastra</h1>
+                        <p class="px-4 text-base text-black">A. Prodi S1 Sastra inggris Bidang Minat Penerjemah</p>
+                      </li>
+                    </ul>
+                    </div>
+                  </li>
+                  <li
+                    class="bg-white my-1 border rounded-md shadow-lg"
+                    x-data="accordion(12)"
+                  >
+                    <h2
+                      @click="handleClick()"
+                      class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                    >
+                      <span>Fakultas Keguruan Dan Ilmu Pendidikan</span>
+                      <svg
+                        :class="handleRotate()"
+                        class="fill-current text-sky-700 h-6 w-6 transform transition-transform duration-500"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                        ></path>
+                      </svg>
+                    </h2>
+                    <div
+                      x-ref="tab"
+                      :style="handleToggle()"
+                      class="overflow-hidden max-h-0 duration-500 transition-all"
+                    >
+                    <ul class="p-3">
+                      <li>
+                        <h1 class="font-semibold">I. Jurusan Jurusan Pendidikan Bahasa dan Seni</h1>
+                        <p class="px-4 text-base text-black">A. Prodi S1 Pendidikan Bahasa dan Sastraindonesia</p>
+                        <p class="px-4 text-base text-black">B. Prodi S1 Pendidikan Bahasa Inggris</p>
+                      </li>
+                      <li>
+                        <h1 class="font-semibold">II. Jurusan Pendidikan Matematika dan IPA</h1>
+                        <p class="px-4 text-base text-black">A. Prodi S1 Pendidikan Matematika</p>
+                        <p class="px-4 text-base text-black">B. Prodi S1 Pendidikan Fisika</p>
+                        <p class="px-4 text-base text-black">C. Prodi S1 Pendidikan Biologi</p>
+                        <p class="px-4 text-base text-black">D. Prodi S1 Pendidikan Kimia</p>
+                      </li>
+                    
+                      <li>
+                        <h1 class="font-semibold">III. Jurusan Pendidikan IPS</h1>
+                        <p class="px-4 text-base text-black">A. Prodi S1 Pendidikan Pancasila dan Kewarganegaraan</p>
+                        <p class="px-4 text-base text-black">B. Prodi S1 Pendidikan Ekonomi</p>
+                      </li>
+                      <li>
+                        <h1 class="font-semibold">IV. Jurusan Pendidikan PGSD Dan PGPAUD</h1>
+                        <p class="px-4 text-base text-black">A. Prodi S1 PGSD Kelulusan SMA</p>
+                        <p class="px-4 text-base text-black">B. Prodi S1 PGSD BI Kelulusan Sariana</p>
+                        <p class="px-4 text-base text-black">C. Prodi S1 PGPAUD Kelulusan SMA</p>
+                        <p class="px-4 text-base text-black">D. Prodi S1 PGPAUD BI Kelulusan Sarjana</p>
+                      </li>
+                    </ul>
+                    </div>
+                  </li>
+             
+                </ul>
+              </div>
+            </div>
+          </main>
+        </div>
+
+      </div>
+    </section>
+    <!--End Info Accordions -->
+
+    <section class="container mx-auto" id="register">
+      <h1 class="text-3xl font-semibold text-center text-sky-600 my-4 info__register">Syarat Wajib Pendaftaran</h1>
+      <div class="flex flex-col lg:flex-row">
+        <div class="container p-2 mx-auto sm:p-4 info__register1">
+          <h2 class="mb-4 text-2xl font-semibold leading-tight text-center">Persyaratan Pendaftaran</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-xs border">
+              <thead class="bg-sky-500 text-white">
+                <tr class="text-left">
+                  <th class="p-3">No.</th>
+                  <th class="p-3">Berkas Persyaratan</th>
+                  <th class="p-3">Keterangan</th>
+                </tr>
+              </thead>
+              <tbody class="text-black">
+                <tr class="border-b border-opacity-20">
+                  <td class="p-3">
+                    <p>1.</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Pas Foto (formal) Ukuran 2x3, 3x4, 4x6 (Masing-masing 3 Lembar)</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Wajib</p>
+                  </td>
+                </tr>
+                <tr class="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+                  <td class="p-3">
+                    <p>2.</p>
+                  </td>
+                  <td class="p-3">
+                    <p>FC Ijazah Legalisir Terakhir (1 Lembar)</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Wajib</p>
+                  </td>
+                </tr>
+                <tr class="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+                  <td class="p-3">
+                    <p>3.</p>
+                  </td>
+                  <td class="p-3">
+                    <p>FC KTP (1 Lembar)</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Wajib</p>
+                  </td>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+                  <td class="p-3">
+                    <p>4.</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Materai 10.000 (3 Lembar)</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Wajib</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="container p-2 mx-auto sm:p-4 info__register2">
+          <h2 class="mb-4 text-2xl font-semibold leading-tight text-center">Tambahan Persyaratan Khusus FKIP</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-xs border">
+              <thead class="bg-yellow-500 text-white">
+                <tr class="text-left">
+                  <th class="p-3">No.</th>
+                  <th class="p-3">Berkas Persyaratan</th>
+                  <th class="p-3">Keterangan</th>
+                </tr>
+              </thead>
+              <tbody class="text-black">
+                <tr class="border-b border-opacity-20">
+                  <td class="p-3">
+                    <p>1.</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Surat Keterangan Wiyata Bhakti (Diketik, Ttd Kep. Sek dan di Stempel)</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Wajib</p>
+                  </td>
+                </tr>
+                <tr class="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+                  <td class="p-3">
+                    <p>2. </p>
+                  </td>
+                  <td class="p-3">
+                    <p>Surat Keterangan Mengajar (Diketik, Ttd Kep. Sek dan di Stempel )</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Wajib</p>
+                  </td>
+                </tr>
+                <tr class="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+                  <td class="p-3">
+                    <p>3.</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Surat Keterangan Ijin Belajar ( Diketik, Ttd Kep. Sek dan di Stempel)</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Wajib</p>
+                  </td>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+                  <td class="p-3">
+                    <p>4.</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Formulir Penilaian Kinerja Guru (Ttd Kep. Sek dan di Stempel)</p>
+                  </td>
+                  <td class="p-3">
+                    <p>Wajib</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center my-6 button__register">
+        <a href="" class="inline-block bg-sky-700 hover:bg-sky-800 text-white px-5 py-3 rounded-xl shadow-md">Daftar Sekarang</a>
+      </div>
+    </section>
+    
+    <!-- Footer container -->
+<footer
+class="border mt-10 bg-sky-700 text-center lg:text-left" id="contact">
+<!-- Main container div: holds the entire content of the footer, including four sections (TW Elements, Products, Useful links, and Contact), with responsive styling and appropriate padding/margins. -->
+<div class="mx-6 py-10 text-center md:text-left">
+  <div class="flex flex-col lg:flex-row justify-between gap-8 container mx-auto">
+    <!-- TW Elements section -->
+    <div class="">
+      <h6
+        class="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start text-black">
+        <img src="assets/logo_ut2.png" alt="" class="h-16">
+      </h6>
+     <div>
+      <a href="https://maps.app.goo.gl/KKEXhWte43mySfnT6" class="text-white" target="_blank">
+        <i class="ri-home-3-line text-2xl text-white"></i>
+        Jl. Raya Blora-Rembang No.km.1, Kabupaten Blora, Jawa Tengah 
+      </a>
+     </div>
+     <div>
+      <a href="salutmustikablora.com" class="text-white" target="_blank">
+        <i class="ri-global-line text-2xl text-white"></i>
+        salutmustikablora.com
+      </a>
+     </div>
+    </div>
+    <!-- Useful links section -->
+    <div class="text-white">
+      <h6
+        class=" mb-4 flex justify-center text-white font-semibold uppercase md:justify-start">
+        Fakultas & Prodi
+      </h6>
+      <p class="mb-4">
+        <a href="#stats">Fakultas Matematika dan IPA</a>
+      </p>
+      <p class="mb-4">
+        <a href="#stats">Fakultas Ekonomi</a>
+      </p>
+      <p class="mb-4">
+        <a href="#stats">Fakultas Ilmu Sosial dan Politik</a>
+      </p>
+      <p>
+        <a href="#stats">Fakultas Keguruan dan Ilmu Pendidikan</a>
+      </p>
+    </div>
+    <!-- Contact section -->
+    <div>
+      <h6
+        class="mb-4 flex text-white justify-center font-semibold uppercase md:justify-start">
+        Contact
+      </h6>
+      <p class="mb-4 text-white flex items-center justify-center md:justify-start">
+        <a href="whatsapp://send?text=Hello&phone=+6289513910161" target="_blank">
+          <i class="ri-whatsapp-line mx-3 text-2xl"></i>
+          +62 895-1391-0161
+        </a>
+      </p>
+      
+      <p class="mb-4 text-white flex items-center justify-center md:justify-start">
+        <a href="https://www.instagram.com/salutmustikablora?igsh=aWkzOXlxeDNldjF2" target="_blank">
+          <i class="ri-instagram-line mx-3 text-2xl"></i>
+          salutmustikablora
+        </a>
+      </p>
+      
+      <p class="mb-4 text-white flex items-center justify-center md:justify-start">
+        <i class="ri-phone-line mx-3 text-2xl"></i>
+        0296-530 15 35
+      </p>
+    </div>
+  </div>
+</div>
+
+<!--Copyright section-->
+<div class="bg-black/5 text-white p-6 text-center">
+  <span>© 2024 Copyright:</span>
+  <a class="font-semibold" href="https://tw-elements.com/"
+    >Salutmustikablora</a
+  >
+</div>
+</footer>
+    <!-- scripts -->
+    <!-- main -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
