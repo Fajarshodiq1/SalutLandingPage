@@ -43,7 +43,7 @@
                 class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5"
               >
                 <div class="md:col-span-5">
-                    <form method="POST" action="https://script.google.com/macros/s/AKfycbzu_BgqmjjL2U7Jq7qSN63c3inxTZwd_35j2xI3gWvA5NEWKFzeemuPav925QA1yoiL/exec">
+                    <form id="myForm" method="POST" action="https://script.google.com/macros/s/AKfycbzu_BgqmjjL2U7Jq7qSN63c3inxTZwd_35j2xI3gWvA5NEWKFzeemuPav925QA1yoiL/exec">
                         <label for="nama" class="font-medium"
                           ><i class="ri-user-add-line text-base mr-2"></i>Nama
                           Lengkap</label
@@ -150,16 +150,24 @@
                           <option value="lainnya">Lainnya</option>
                         </select>
                       </div>
-                      <div class="md:col-span-5 text-right">
+                      <div class="md:col-span-5 text-right flex justify-between">
+                        <div class="inline-flex items-end my-3">
+                            <a href="" onclick="resetForm()" class="cursor-pointer inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+                                <i class="ri-loop-left-line"></i>
+                                Reset Form</a>
+                        </div>
                         <div class="inline-flex items-end gap-x-3 my-3">
                           <button
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            id="submitBtn"
+                            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
                             type="submit"
                             value="Simpan Data"
                           >
+                          <i class="ri-save-line"></i>
                             Submit
                           </button>
-                          <a href="index.html" class="inline-block bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                          <a href="index.html" class="inline-block bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                            <i class="ri-close-line"></i>
                               Kembali
                           </a>
                         </div>
@@ -183,5 +191,11 @@
         </a> -->
       </div>
     </div>
+    <!-- scripts -->
+    <script>
+        function resetForm() {
+         document.getElementById("myForm").reset();
+}
+    </script>
   </body>
 </html>
