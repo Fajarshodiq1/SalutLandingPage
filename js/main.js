@@ -97,42 +97,105 @@ document.addEventListener("alpine:init", () => {
   }));
 });
 
-// scroll reveal
-const srLeft = ScrollReveal({
-  origin: "left",
-  distance: "80px",
-  duration: 800,
-});
+// // scroll reveal
+// const srLeft = ScrollReveal({
+//   origin: "left",
+//   distance: "80px",
+//   duration: 800,
+// });
 
-srLeft.reveal(".hero__img", { delay: 500 });
-srLeft.reveal(".items__accordions1", { delay: 500 });
-srLeft.reveal(".info__register1", { delay: 500 });
+// srLeft.reveal(".hero__img", { delay: 500 });
+// srLeft.reveal(".items__accordions1", { delay: 500 });
+// srLeft.reveal(".info__register1", { delay: 500 });
 
-const srRight = ScrollReveal({
-  origin: "right",
-  distance: "80px",
-  duration: 800,
-});
-srRight.reveal(".hero__text", { delay: 500 });
-srLeft.reveal(".items__accordions2", { delay: 500 });
-srLeft.reveal(".info__register2", { delay: 500 });
+// const srRight = ScrollReveal({
+//   origin: "right",
+//   distance: "80px",
+//   duration: 800,
+// });
+// srRight.reveal(".hero__text", { delay: 500 });
+// srLeft.reveal(".items__accordions2", { delay: 500 });
+// srLeft.reveal(".info__register2", { delay: 500 });
 
-const srTop = ScrollReveal({
-  origin: "top",
-  distance: "80px",
-  duration: 800,
-});
-srLeft.reveal(".info__accordions", { delay: 500 });
-srLeft.reveal(".info__register", { delay: 500 });
+// const srTop = ScrollReveal({
+//   origin: "top",
+//   distance: "80px",
+//   duration: 800,
+// });
+// srLeft.reveal(".info__accordions", { delay: 500 });
+// srLeft.reveal(".info__register", { delay: 500 });
 
-const srBottom = ScrollReveal({
-  origin: "bottom",
-  distance: "80px",
-  duration: 800,
+// const srBottom = ScrollReveal({
+//   origin: "bottom",
+//   distance: "80px",
+//   duration: 800,
+// });
+// srBottom.reveal(".stats__item", { delay: 200 });
+// srBottom.reveal(".stats__item1", { delay: 300 });
+// srBottom.reveal(".stats__item2", { delay: 400 });
+// srBottom.reveal(".stats__item3", { delay: 500 });
+// srBottom.reveal(".stats__item4", { delay: 600 });
+// srLeft.reveal(".button__register", { delay: 500 });
+
+let currentIndex = 0;
+
+function showSlide(index) {
+  const slides = document.querySelectorAll(".carousel-item");
+  if (index >= slides.length) {
+    currentIndex = 0;
+  } else if (index < 0) {
+    currentIndex = slides.length - 1;
+  } else {
+    currentIndex = index;
+  }
+  const offset = -currentIndex * 100;
+  document.querySelector(
+    ".carousel-inner"
+  ).style.transform = `translateX(${offset}%)`;
+}
+
+function prevSlide() {
+  showSlide(currentIndex - 1);
+}
+
+function nextSlide() {
+  showSlide(currentIndex + 1);
+}
+
+// Auto slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+// scripts.js
+document.addEventListener("DOMContentLoaded", function () {
+  function animateNumber(element, targetNumber) {
+    const duration = 2000; // Duration of animation in milliseconds
+    const framesPerSecond = 30;
+    const frameDuration = 1000 / framesPerSecond;
+    const totalFrames = Math.round(duration / frameDuration);
+    const increment = targetNumber / totalFrames;
+
+    let currentNumber = 0;
+    const interval = setInterval(() => {
+      currentNumber += increment;
+      if (currentNumber >= targetNumber) {
+        currentNumber = targetNumber;
+        clearInterval(interval);
+      }
+      element.textContent = Math.round(currentNumber);
+    }, frameDuration);
+  }
+
+  // Get the elements and target numbers
+  const facultyCountElement = document.getElementById("facultyCount");
+  const programCountElement = document.getElementById("programCount");
+  const teacherCountElement = document.getElementById("teacherCount");
+
+  const targetFacultyCount = 4; // Set your target numbers here
+  const targetProgramCount = 37;
+  const targetTeacherCount = 99;
+
+  // Animate the numbers
+  animateNumber(facultyCountElement, targetFacultyCount);
+  animateNumber(programCountElement, targetProgramCount);
+  animateNumber(teacherCountElement, targetTeacherCount);
 });
-srBottom.reveal(".stats__item", { delay: 200 });
-srBottom.reveal(".stats__item1", { delay: 300 });
-srBottom.reveal(".stats__item2", { delay: 400 });
-srBottom.reveal(".stats__item3", { delay: 500 });
-srBottom.reveal(".stats__item4", { delay: 600 });
-srLeft.reveal(".button__register", { delay: 500 });

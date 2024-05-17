@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dist/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.min.css"
+    />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        z-index: 9999;
+      }
+
+      .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        position: relative; /* Memastikan penempatan untuk tombol tutup */
+        overflow: auto; /* Membuat konten modal dapat di-scroll */
+        max-height: 80vh; /* Menentukan ketinggian maksimum konten modal */
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+
+      .input-group {
+        margin-bottom: 10px;
+      }
+
+      .input-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body class="bg-slate-100">
+    <div class="flex justify-center items-center w-3/4 mx-auto">
+      <div class="bg-white w-full shadow-lg overflow-hidden sm:rounded-lg">
+        <div class="px-4 py-5 sm:px-6">
+          <div class="flex justify-between">
+            <div>
+              <h3 class="text-lg leading-6 font-medium text-gray-900">
+                Nama Mahasiswa
+              </h3>
+              <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                Status Pembayaran -
+                <span class="text-red-500">Belum Bayar</span>
+              </p>
+            </div>
+            <div class="flex gap-x-2 w-1/4 flexc">
+              <button
+                type="button"
+                class="text-white bg-red-500 w-full inline-flex items-center justify-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              >
+                <i class="ri-logout-box-line h-4 w-4 mr-2 -ml-0.5"></i>
+                Log Out
+              </button>
+              <button
+                id="openModalButton"
+                type="button"
+                class="inline-flex w-full items-center text-white justify-center bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 mr-2 -ml-0.5"
+                  viewbox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Edit
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-200">
+          <dl>
+            <div
+              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Nim</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Nama Lengkap</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Fakultas</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Jurusan</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Jenis Kelamin</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Smester</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Agama</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Sipas</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Pos</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Pokjar</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Wilayah Ujian</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">Alamat Email</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">
+                Alamat Mahasiswa
+              </dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">No.Telp</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+            <div
+              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+            >
+              <dt class="text-sm font-medium text-gray-500">No.Telp2</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                Jawaban
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <!-- modal -->
+    <div id="myModal" class="modal w-3/4">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="input-group">
+          <label for="nim" class="input-label">Nim</label>
+          <input type="text" id="nim" name="nim" class="input-field" />
+        </div>
+        <div class="input-group">
+          <label for="nama" class="input-label">Nama</label>
+          <input type="nama" id="nama" name="nama" class="input-field" />
+        </div>
+        <div class="input-group">
+          <label for="fakultas" class="input-label">Fakultas</label>
+          <select name="fakultas" id="fakultas" class="input-field" value="">
+            <option value="Pilih fakultas">Pilih Fakultas</option>
+            <option value="FMIPA">Fakultas Matematika Dan Ipa</option>
+            <option value="FEKON">Fakultas Eknomi</option>
+            <option value="FISIP">Fakultas Ilmu Sosial Dan Politik</option>
+            <option value="FKIP">Fakultas Keguruan Dan Ilmu Pendidikan</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="jurusan" class="input-label">Jurusan</label>
+
+          <select
+            name="jurusan"
+            id="jurusan"
+            class="input-field"
+            value=""
+            required
+          >
+            <option value="Pilih Jurusan">Pilih Jurusan</option>
+            <option value="matematika">S1 Matematika</option>
+            <option value="statistika">S1 Statistika</option>
+            <option value="biologi">S1 Biologi</option>
+            <option value="agribisnis-penyuluhan">
+              S1 Agribisnis Bidang Minat Penyuluhan Dan Komunikasi:
+              Pertanian/Peternakan/Perikanan
+            </option>
+            <option value="ilmu-teknologi-pangan">
+              S1 Ilmu Dan Teknologi Pangan - Prodi Perencanaan Wilayah Dan Kota
+              Bidang Minat Pengelolaan SDA Dan Lingkungan
+            </option>
+            <option value="ekonomi-pembangunan">
+              Prodi S1 Ekonomi Pembangunan
+            </option>
+            <option value="ekonomi-perbankan-syariah">
+              Prodi S1 Ekonomi Bidang Minat Ekonomi Perbankan Syariah
+            </option>
+            <option value="akuntansi">Prodi S1 Akuntansi</option>
+            <option value="akuntansi-publik">
+              Prodi S1 Akuntansi Bidang Minat Akuntansi Sektor Publik
+            </option>
+            <option value="manajemen">Prodi S1 Manajemen</option>
+            <option value="administrasi-negara">
+              Prodi S1 Administrasi Negara
+            </option>
+            <option value="administrasi-kepegawaian">
+              Prodi S1 Administrasi Negara Bidang Minat Administrasi Dan
+              Manajemen Kepegawaian
+            </option>
+            <option value="ilmu-administrasi-bisnis">
+              Prodi S1 Ilmu Administrasi Bisnis
+            </option>
+            <option value="ilmu-pemerintahan">
+              Prodi S1 Ilmu Pemerintahan
+            </option>
+            <option value="ilmu-hukum">Prodi S1 Ilmu Hukum</option>
+            <option value="kearsipan">Prodi D-IV Kearsipan</option>
+            <option value="perpajakan">Prodi D-III Perpajakan</option>
+            <option value="ilmu-komunikasi">Prodi S1 Ilmu Komunikasi</option>
+            <option value="perpustakaan">Prodi D-II Perpustakaan</option>
+            <option value="ilmu-perpustakaan">
+              Prodi S1 Ilmu Perpustakaan
+            </option>
+            <option value="sosiologi">Prodi S1 Sosiologi</option>
+            <option value="sastra-inggris-penerjemah">
+              Prodi S1 Sastra Inggris Bidang Minat Penerjemah
+            </option>
+            <option value="pendidikan-bahasa-indonesia">
+              Prodi S1 Pendidikan Bahasa Dan Sastra Indonesia
+            </option>
+            <option value="pendidikan-bahasa-inggris">
+              Prodi S1 Pendidikan Bahasa Inggris
+            </option>
+            <option value="pendidikan-matematika">
+              Prodi S1 Pendidikan Matematika
+            </option>
+            <option value="pendidikan-fisika">
+              Prodi S1 Pendidikan Fisika
+            </option>
+            <option value="pendidikan-biologi">
+              Prodi S1 Pendidikan Biologi
+            </option>
+            <option value="pendidikan-kimia">Prodi S1 Pendidikan Kimia</option>
+            <option value="pendidikan-agama-islam">
+              Prodi S1 Pendidikan Agama Islam
+            </option>
+            <option value="pendidikan-pancasila">
+              Prodi S1 Pendidikan Pancasila Dan Kewarganegaraan
+            </option>
+            <option value="pendidikan-ekonomi">
+              Prodi S1 Pendidikan Ekonomi
+            </option>
+            <option value="pgsd-sma">Prodi S1 PGSD Kelulusan SMA</option>
+            <option value="pgsd-bi">Prodi S1 PGSD BI Kelulusan Sarjana</option>
+            <option value="pgpaud-sma">Prodi S1 PGPAUD Kelulusan SMA</option>
+            <option value="pgpaud-bi">
+              Prodi S1 PGPAUD BI Kelulusan Sarjana
+            </option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="jenis-kelamin" class="input-label">Jenis Kelamin</label>
+          <select
+            name="jenis-kelamin"
+            id="jenis-kelamin"
+            class="input-field"
+            value=""
+            required
+          >
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="agama" class="input-label">Agama</label>
+          <select id="agama" name="agama" class="input-field">
+            <option value="Islam">Islam</option>
+            <option value="Kristen">Kristen</option>
+            <option value="Hindu">Hindu</option>
+            <option value="Budha">Budha</option>
+            <option value="Konghucu">Konghucu</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="pos" class="input-label">Pos</label>
+          <select id="pos" name="pos" class="input-field">
+            <option value="pos">Pilih Pos</option>
+            <option value="50148">50148/KEL.BONGSARI</option>
+            <option value="50164">50164/KEL.KALIGAWE</option>
+            <option value="50552">50552/KEC.BERGAS</option>
+            <option value="58200">58200/BLORA</option>
+            <option value="58211">58211/KEL.TEMPELAN</option>
+            <option value="58212">58212/KEL.KUNDEN</option>
+            <option value="58213">58213/KEL.KAUMAN</option>
+            <option value="58214">58214/KEL.JETIS</option>
+            <option value="58215">58215/KEL.MLANGSEN</option>
+            <option value="58216">58216/KEL.BERAN</option>
+            <option value="58217">58217/KEL.KEDUNGJENAR</option>
+            <option value="58218">58218/KEL.BANGKLE</option>
+            <option value="58219">58219/KEL.TEGALGUNUNG</option>
+            <option value="58251">58251/BLORA</option>
+            <option value="58252">58212/KEC.TUNJUNGAN</option>
+            <option value="58253">58253/KEC.BANJAREJO</option>
+            <option value="58254">58254/KEC.NAGWEN</option>
+            <option value="58255">58255/KEC.KANDURAN</option>
+            <option value="58256">58256/KEC.TODANAN</option>
+            <option value="58257">58257/KEC.JAPAH</option>
+            <option value="58261">58261/KEC.JEPON</option>
+            <option value="58262">58262/KEC.BOGOREJO</option>
+            <option value="58271">58271/KEC.SAMBONG</option>
+            <option value="58272">58272/KEC.JIKEN</option>
+            <option value="58281">58281/KEC.KEDUNG TUBAN</option>
+            <option value="58282">58282/KEC.RANDUBLATUNG</option>
+            <option value="58283">58283/KEC.KRADENAN</option>
+            <option value="58284">58284/KEC.JATT</option>
+            <option value="58371">58371/SAMBONG</option>
+            <option value="58372">58372/JIKEN</option>
+            <option value="58382">58382/KEC.RANDUBLATUNG</option>
+            <option value="59354">59354/KEC.SULANG</option>
+            <option value="59255">5955/KEC.BULU</option>
+            <option value="59263">59263/KEC.GUNEM</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="pokjar" class="input-label">pokjar</label>
+          <select id="pokjar" name="pokjar" class="input-field">
+            <option value="Pilih pokjar">Pilih Pokjar</option>
+            <option value="Salut Mustika Blora">Salut Mustika Blora</option>
+            <option value="Salut Mustika Blora">Non Pokjar / Non Salut</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="sipas" class="input-label">Sipas</label>
+          <select id="sipas" name="sipas" class="input-field">
+            <option value="Pilih Sipas">Pilih Sipas</option>
+            <option value="Paket MK dengan Tutorial dengan Layanan Khusus">
+              Paket MK dengan Tutorial dengan Layanan Khusus
+            </option>
+            <option value="Paket MK dengan Tutorial Tatap Muka">
+              Paket MK dengan Tutorial Tatap Muka (S1 - Non Pendas)
+            </option>
+            <option value="Paket dengan Tutorial Tatap Muka sebagian MK">
+              07/Paket dengan Tutorial Tatap Muka sebagian MK ( S1 - PGSD )
+            </option>
+            <option value="Paket dengan Tutorial Tatap Muka beberapa MK">
+              09/Paket dengan Tutorial Tatap Muka beberapa MK (S1 - Non Pendas )
+            </option>
+            <option value="Paket tanpa Tutorial Tatap Muka">
+              10/Paket tanpa Tutorial Tatap Muka (Diploma)
+            </option>
+            <option value="Paket tanpa Tutorial Tatap Muka PWKL">
+              Paket tanpa Tutorial Tatap Muka PWKL
+            </option>
+            <option value="Paket tanpa Tutorial Tatap Muka Sarjana">
+              Paket tanpa Tutorial Tatap Muka Sarjana
+            </option>
+            <option
+              value="Paket dengan Tutorial Tatap Muka sebagian MK S1 PGPAUD AKPMM"
+            >
+              Paket dengan Tutorial Tatap Muka sebagian MK S1 PGPAUD AKPMM
+            </option>
+            <option value="Paket tanpa Tutorial Tatap Muka (S1-PENDAS)">
+              Paket tanpa Tutorial Tatap Muka (S1-PENDAS)
+            </option>
+            <option value="Paket tanpa Tutorial Tatap Muka ( S1-PGPAUD )">
+              Paket tanpa Tutorial Tatap Muka ( S1-PGPAUD )
+            </option>
+            <option value="Paket MK dengan Tutorial Tatap Muka (S1-PGSD BI )">
+              Paket MK dengan Tutorial Tatap Muka (S1-PGSD BI )
+            </option>
+            <option value="Paket tanpa Tutorial Tatapmuka ( S1 Pariwisata)">
+              Paket tanpa Tutorial Tatapmuka ( S1 Pariwisata)
+            </option>
+            <option
+              value="Paket tanpa Tutorial Tatap Muka (S1 Sistem Informasi)"
+            >
+              Paket tanpa Tutorial Tatap Muka (S1 Sistem Informasi)
+            </option>
+            <option value="Non Sipas">Non Sipas</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="email" class="input-label">Alamat Email</label>
+          <input type="text" id="email" name="email" class="input-field" />
+        </div>
+        <div class="input-group">
+          <label for="telp" class="input-label">No.Telp</label>
+          <input type="text" id="telp" name="telp" class="input-field" />
+        </div>
+        <div class="input-group">
+          <label for="tempat_lahir" class="input-label">Tempat Lahir</label>
+          <input
+            type="text"
+            id="tempat_lahir"
+            name="tempat_lahir"
+            class="input-field"
+          />
+        </div>
+        <div class="input-group">
+          <label for="tanggal_lahir" class="input-label">Tanggal Lahir</label>
+          <input
+            type="date"
+            id="tanggal_lahir"
+            name="tanggal_lahir"
+            class="input-field"
+          />
+        </div>
+        <div class="input-group">
+          <label for="alamat" class="input-label">Alamat</label>
+          <textarea
+            type="text"
+            id="alamat"
+            name="alamat"
+            class="input-field"
+          ></textarea>
+        </div>
+        <button
+          type="button"
+          class="text-white bg-yellow-500 w-full inline-flex items-center justify-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          <i class="ri-save-line h-4 w-4 mr-2 -ml-0.5"></i>
+          Simpan
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // MODAL
+      var modalBtn = document.getElementById("openModalButton");
+      var modal = document.getElementById("myModal");
+      var closeModalBtn = document.querySelector(".close-btn");
+      var body = document.querySelector("body");
+
+      // Fungsi untuk membuka modal
+      function openModal() {
+        modal.style.display = "block";
+        body.style.overflow = "hidden"; // Mengatur overflow pada body agar tidak bisa di-scroll saat modal terbuka
+      }
+
+      // Fungsi untuk menutup modal
+      function closeModal() {
+        modal.style.display = "none";
+        body.style.overflow = "auto"; // Mengembalikan overflow pada body ke auto saat modal ditutup
+      }
+
+      // Penangan acara untuk membuka modal saat tombol diklik
+      modalBtn.addEventListener("click", openModal);
+
+      // Penangan acara untuk menutup modal saat tombol tutup diklik
+      closeModalBtn.addEventListener("click", closeModal);
+
+      // Penangan acara untuk menutup modal saat mengklik di luar konten modal
+      window.addEventListener("click", function (event) {
+        if (event.target == modal) {
+          closeModal();
+        }
+      });
+
+      // Simpan data formulir saat tombol Kirim diklik
+      var submitFormButton = document.getElementById("submitFormButton");
+      submitFormButton.addEventListener("click", function () {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        // Ambil nilai input form lainnya di sini
+
+        // Lakukan sesuatu dengan data formulir (misalnya, kirim ke server)
+        console.log("Nama:", name);
+        console.log("Email:", email);
+        // Tambahkan output untuk input form lainnya
+
+        // Setelah mengirim, tutup modal
+        closeModal();
+      });
+      //   END MODAL
+      // SELECT FILTERiNG
+      const fakultasSelect = document.getElementById("fakultas");
+      const jurusanSelect = document.getElementById("jurusan");
+
+      fakultasSelect.addEventListener("change", function () {
+        const selectedFakultas = this.value;
+        while (jurusanSelect.options.length > 1) {
+          jurusanSelect.remove(1);
+        }
+        switch (selectedFakultas) {
+          case "FMIPA":
+            addOptionsToJurusan([
+              "S1 Matematika",
+              "S1 Statistika",
+              "S1 Biologi",
+              "S1 Agribisnis Bidang Minat Penyuluhan Dan Komunikasi: Pertanian/Peternakan/Perikanan",
+              "S1 Ilmu Dan Teknologi Pangan - Prodi Perencanaan Wilayah Dan Kota Bidang Minat Pengelolaan SDA Dan Lingkungan",
+            ]);
+            break;
+          case "FEKON":
+            addOptionsToJurusan([
+              "S1 Ekonomi Pembangunan",
+              "S1 Ekonomi Bidang Minat Ekonomi Perbankan Syariah",
+              "S1 Akuntansi",
+              "S1 Akuntansi Bidang Minat Akuntansi Sektor Publik",
+              "S1 Manajemen",
+            ]);
+            break;
+          case "FISIP":
+            addOptionsToJurusan([
+              "S1 Administrasi Negara",
+              "S1 Administrasi Negara Bidang Minat Administrasi Dan Manajemen Kepegawaian",
+              "S1 Ilmu Administrasi Bisnis",
+              "S1 Ilmu Pemerintahan",
+              "S1 Ilmu Hukum",
+              "D-IV Kearsipan",
+              "D-III Perpajakan",
+              "S1 Ilmu Komunikasi",
+              "D-II Perpustakaan",
+              "S1 Ilmu Perpustakaan",
+              "S1 Sosiologi",
+              "S1 Sastra Inggris Bidang Minat Penerjemah",
+            ]);
+            break;
+          case "FKIP":
+            addOptionsToJurusan([
+              "S1 Pendidikan Bahasa Dan Sastra Indonesia",
+              "S1 Pendidikan Bahasa Inggris",
+              "S1 Pendidikan Matematika",
+              "S1 Pendidikan Fisika",
+              "S1 Pendidikan Biologi",
+              "S1 Pendidikan Kimia",
+              "S1 Pendidikan Agama Islam",
+              "S1 Pendidikan Pancasila Dan Kewarganegaraan",
+              "S1 Pendidikan Ekonomi",
+              "S1 PGSD Kelulusan SMA",
+              "S1 PGSD BI Kelulusan Sarjana",
+              "S1 PGPAUD Kelulusan SMA",
+              "S1 PGPAUD BI Kelulusan Sarjana",
+            ]);
+            break;
+        }
+      });
+
+      function addOptionsToJurusan(options) {
+        options.forEach((option) => {
+          const optionElem = document.createElement("option");
+          optionElem.textContent = option;
+          optionElem.value = option;
+          jurusanSelect.appendChild(optionElem);
+        });
+      }
+      // END SELECT FILTERiNG
+    </script>
+  </body>
+</html>

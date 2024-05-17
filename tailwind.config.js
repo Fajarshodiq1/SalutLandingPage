@@ -26,6 +26,8 @@ module.exports = {
       },
       fontFamily: {
         primary: "Poppins",
+        montserrat: "Montserrat",
+        quicksand: "Quicksand",
       },
       boxShadow: {
         custom1: "0px  2px  40px 0px rgba(8, 70, 78, 0.08)",
